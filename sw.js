@@ -1,5 +1,5 @@
 // Bump CACHE when you publish a new build so phones pick it up.
-const CACHE = "training-v11";
+const CACHE = "training-v14";
 const SHELL = [
   "./",
   "./index.html",
@@ -9,6 +9,10 @@ const SHELL = [
   "./icon-maskable-512.png",
   "./apple-touch-icon.png",
 ];
+
+self.addEventListener("message", (e) => {
+  if (e.data && e.data.type === "SKIP_WAITING") self.skipWaiting();
+});
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
