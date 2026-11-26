@@ -1,5 +1,5 @@
 // Bump CACHE when you publish a new build so phones pick it up.
-const CACHE = "training-v19";
+const CACHE = "training-v20";
 const SHELL = [
   "./",
   "./index.html",
